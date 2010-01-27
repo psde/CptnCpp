@@ -1,0 +1,33 @@
+#ifndef GOSU_HPP
+#define GOSU_HPP
+
+#include <Gosu/AutoLink.hpp>
+#include <Gosu/Gosu.hpp>
+
+#include <boost/scoped_ptr.hpp>
+#include <boost/shared_ptr.hpp>
+#include <boost/lexical_cast.hpp>
+#include <boost/lambda/lambda.hpp>
+
+#include <iostream>
+#include <fstream>
+#include <list>
+#include <math.h>
+
+// FIXME: this makes only sense in my dev-environment. sorry for that.
+#ifdef _MSC_VER
+	#include "../../fpsCounter/fpsCounter/fpsCounter.hpp"
+	#include "../../Gosu-PostProcessing/Gosu-PostProcessing/Gosu-PostProcessing.hpp"
+#else
+	#include "fpsCounter.hpp"
+	#include "Gosu-PostProcessing.hpp"
+#endif
+
+#include "Shadows.hpp"
+
+#include "Gem.hpp"
+#include "Map.hpp"
+#include "Player.hpp"
+
+
+#endif
