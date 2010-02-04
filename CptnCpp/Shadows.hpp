@@ -187,14 +187,14 @@ namespace Gosu
 			// Setup frame and render buffer, if we havent already
 			if(!init)
 			{
-				glGenRenderbuffersEXT( 1, &renderbuffer );
-				glBindRenderbufferEXT( GL_RENDERBUFFER_EXT, renderbuffer );
-				glRenderbufferStorageEXT( GL_RENDERBUFFER_EXT, GL_DEPTH_COMPONENT32, 800, 600 );
+				glGenRenderbuffers( 1, &renderbuffer );
+				glBindRenderbuffer( GL_RENDERBUFFER_EXT, renderbuffer );
+				glRenderbufferStorage( GL_RENDERBUFFER_EXT, GL_DEPTH_COMPONENT32, 800, 600 );
 
-				glGenFramebuffersEXT( 1, &fbo );
-				glBindFramebufferEXT( GL_FRAMEBUFFER_EXT, fbo );
-				glFramebufferRenderbufferEXT( GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT0_EXT, GL_RENDERBUFFER_EXT, renderbuffer );
-				glFramebufferTexture2DEXT(GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT0_EXT, GL_TEXTURE_2D, glTex, 0 );
+				glGenFramebuffers( 1, &fbo );
+				glBindFramebuffer( GL_FRAMEBUFFER_EXT, fbo );
+				glFramebufferRenderbuffer( GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT0_EXT, GL_RENDERBUFFER_EXT, renderbuffer );
+				glFramebufferTexture2D(GL_FRAMEBUFFER_EXT, GL_COLOR_ATTACHMENT0_EXT, GL_TEXTURE_2D, glTex, 0 );
 
 				GLenum status = glCheckFramebufferStatusEXT(GL_FRAMEBUFFER);
 

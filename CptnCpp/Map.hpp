@@ -7,6 +7,8 @@ const int tileNothing = -1;
 const int tileGrass = 0;
 const int tileEarth = 1;
 
+using namespace std;
+
 class Map
 {
 	private:		

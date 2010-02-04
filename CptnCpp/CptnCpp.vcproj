@@ -215,7 +215,15 @@
 			Name="Shader"
 			>
 			<File
-				RelativePath="..\bin\shader\shadows\finalShadow2.frag"
+				RelativePath="..\data\shader\shadows\finalShadow.frag"
+				>
+			</File>
+			<File
+				RelativePath="..\data\shader\shadows\shadowMap.frag"
+				>
+			</File>
+			<File
+				RelativePath="..\data\shader\shadows\shadowMap.vert"
 				>
 			</File>
 		</Filter>

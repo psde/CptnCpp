@@ -14,14 +14,10 @@
 #include <list>
 #include <math.h>
 
-// FIXME: this makes only sense in my dev-environment. sorry for that.
-#ifdef _MSC_VER
-	#include "../../fpsCounter/fpsCounter/fpsCounter.hpp"
-	#include "../../Gosu-PostProcessing/Gosu-PostProcessing/Gosu-PostProcessing.hpp"
-#else
-	#include "fpsCounter.hpp"
-	#include "Gosu-PostProcessing.hpp"
-#endif
+
+#include "fpsCounter.hpp"
+#include "Gosu-PostProcessing.hpp"
+
 
 #include "Shadows.hpp"
 
@@ -29,5 +25,6 @@
 #include "Map.hpp"
 #include "Player.hpp"
 
+using namespace std;
 
 #endif
