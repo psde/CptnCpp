@@ -181,7 +181,15 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\fpsCounter.hpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Gem.hpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Gosu-PostProcessing.hpp"
 				>
 			</File>
 			<File

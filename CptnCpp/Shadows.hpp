@@ -144,6 +144,7 @@ namespace Gosu
 			this->caster.push_back(caster);
 		}
 
+		// this is not really used
 		void build()
 		{
 			for(std::vector<Gosu::ShadowCaster>::iterator it = this->caster.begin(); it != this->caster.end(); ++it)
@@ -170,7 +171,7 @@ namespace Gosu
 				glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, 1);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, 800, 600, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, Gosu::realWidth(graphics), Gosu::realHeight(graphics), 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
 				glBindTexture(GL_TEXTURE_2D, 0);
 			}
 
@@ -189,7 +190,6 @@ namespace Gosu
 			{
 				glGenRenderbuffers( 1, &renderbuffer );
 				glBindRenderbuffer( GL_RENDERBUFFER_EXT, renderbuffer );
-				glRenderbufferStorage( GL_RENDERBUFFER_EXT, GL_DEPTH_COMPONENT32, 800, 600 );
 
 				glGenFramebuffers( 1, &fbo );
 				glBindFramebuffer( GL_FRAMEBUFFER_EXT, fbo );
@@ -262,6 +262,8 @@ namespace Gosu
 			return glTex;
 		}
 
+		// checks if there is already a cached shadow map for this specific light
+		// returns the cached, or in case something changed, a new one
 		static GLuint getShadowMap(Graphics &graphics, Gosu::ShadowGeometry &objects, Gosu::Light &light, int screenx, int screeny)
 		{
 			int x = light.getX();
@@ -335,6 +337,7 @@ namespace Gosu
 		{			
 			graphics.beginGL();
 
+			// copy the current scene into our texture
 			glBindTexture(GL_TEXTURE_2D, Shadows::internalColorTexture(graphics));
 			glCopyTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, 0, 0, realWidth(graphics), realHeight(graphics), 0);
 			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
@@ -375,7 +378,7 @@ namespace Gosu
 			GLuint currentShadowmap = 0;
 			for(std::vector<Gosu::ShadowGeometry>::iterator it = objects.begin(); it != objects.end(); ++it)
 			{
-                // yeah, not working at the moment
+				// yeah, not working at the moment
 				currentShadowmap = Shadows::getShadowMap(graphics, (*it), light, screenx, screeny);
 			}
 
